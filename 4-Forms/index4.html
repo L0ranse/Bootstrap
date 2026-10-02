@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap Form Notes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1>Range (Slider)</h1>
+    <p class="lead">In Bootstrap, the <code>.form-range</code> class styles the
+      <code>&lt;input type="range"&gt;</code> element in HTML.
+    </p>
+
+    <div class="alert alert-info">
+      <strong>Note:</strong> <code>min</code> sets the starting value,
+      <code>max</code> sets the highest value, <code>step</code> sets the increment,
+      and <code>value</code> sets the initial value.
+    </div>
+
+    <h2 class="h4 mt-4">1. Basic usage</h2>
+    <label for="customRange1" class="form-label">
+      Volume: <output id="volumeValue">50</output>%
+    </label>
+    <input type="range" class="form-range" id="customRange1" min="0" max="100" step="1" value="50">
+    <div class="d-flex justify-content-between text-muted small">
+      <span>0 (Muted)</span>
+      <span>100 (Highest)</span>
+    </div>
+
+    <h2 class="h4 mt-5">2. Different range and step value</h2>
+    <label for="temperatureRange" class="form-label">
+      Temperature: <output id="temperatureValue">20</output>°C
+    </label>
+    <input type="range" class="form-range" id="temperatureRange" min="-10" max="40" step="5" value="20">
+    <p class="text-muted small">Values range from -10 to 40 and increase by 5.</p>
+
+    <h2 class="h4 mt-5">3. Disabled range</h2>
+    <label for="disabledRange" class="form-label">Unavailable slider</label>
+    <input type="range" class="form-range" id="disabledRange" min="0" max="10" disabled>
+
+    <h2 class="h4 mt-5">Features used</h2>
+    <ul>
+      <li><code>type="range"</code>: Creates a slider control.</li>
+      <li><code>class="form-range"</code>: Applies the Bootstrap style.</li>
+      <li><code>disabled</code>: Prevents the control from being changed.</li>
+      <li><code>&lt;output&gt;</code>: Displays the selected value.</li>
+    </ul>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script>
+    const volumeRange = document.getElementById("customRange1");
+    const volumeValue = document.getElementById("volumeValue");
+    const temperatureRange = document.getElementById("temperatureRange");
+    const temperatureValue = document.getElementById("temperatureValue");
+
+    volumeRange.addEventListener("input", () => {
+      volumeValue.textContent = volumeRange.value;
+    });
+
+    temperatureRange.addEventListener("input", () => {
+      temperatureValue.textContent = temperatureRange.value;
+    });
+  </script>
+</body>
+
+</html>
